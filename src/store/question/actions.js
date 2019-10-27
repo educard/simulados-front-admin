@@ -7,13 +7,13 @@ const questionsLoaded = createAction('QUESTIONS_LOADED')
 
 const saveQuestion = question => {
   return () => {
-    return http.post('http://www.hml.ages.pucrs.br:4900/questions', { data: question })
+    return http.post('localhost:3000/questions', { data: question })
   }
 }
 
 const editQuestion = question => dispatch => {
   http
-    .put(`http://www.hml.ages.pucrs.br:4900/questions/${question.id}`, {
+    .put(`localhost:3000/questions/${question.id}`, {
       data: question,
     })
     .then(() => dispatch(growl('Questão alterada com sucesso.', GROWL_SUCCESS)))
@@ -31,7 +31,7 @@ const editQuestion = question => dispatch => {
 
 const fetchQuestions = (professorId, subArea, offset, limit) => dispatch => {
   http
-    .get(`http://www.hml.ages.pucrs.br:4900/professor/questions/${professorId}`)
+    .get(`localhost:3000/professor/questions/${professorId}`)
     .then(listQuestions => dispatch(questionsLoaded(listQuestions)))
     .catch(() => dispatch(growl('Erro ao carregar questões', GROWL_ERROR)))
 }
