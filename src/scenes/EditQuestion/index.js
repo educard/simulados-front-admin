@@ -1,8 +1,5 @@
 import React from 'react'
-import Container from 'components/Container'
-import Card from 'components/Card'
 import Field from 'components/Field'
-import Input, { TextArea } from 'components/Input'
 import Button from 'components/Button'
 import RadioGroup from 'components/RadioGroup'
 import Form from 'components/Form'
@@ -42,7 +39,7 @@ class EditQuestion extends React.Component {
   getQuestion(id) {
     let matchQuestions
     this.props.questions.forEach(question => {
-      if (question.id == id) {
+      if (question.id === id) {
         matchQuestions = question
       }
     })
@@ -152,7 +149,7 @@ class EditQuestion extends React.Component {
             onChange={event => this.setState({ statement: event.target.value })}
             name="statement"
             label="Enunciado da questão"
-            as={TextArea}
+            as={String}
             type="text"
           />
           <Field
@@ -161,7 +158,7 @@ class EditQuestion extends React.Component {
             onChange={event => this.onChangeAlternative(event.target.value, 0)}
             name="alternativeA"
             label="Alternativa A:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="alternativeB"
@@ -169,7 +166,7 @@ class EditQuestion extends React.Component {
             onChange={event => this.onChangeAlternative(event.target.value, 1)}
             name="alternativeB"
             label="Alternativa B:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="alternativeC"
@@ -177,7 +174,7 @@ class EditQuestion extends React.Component {
             onChange={event => this.onChangeAlternative(event.target.value, 2)}
             name="alternativeC"
             label="Alternativa C:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="alternativeD"
@@ -185,7 +182,7 @@ class EditQuestion extends React.Component {
             onChange={event => this.onChangeAlternative(event.target.value, 3)}
             name="alternativeD"
             label="Alternativa D:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="comment"
@@ -193,7 +190,7 @@ class EditQuestion extends React.Component {
             onChange={event => this.setState({ comment: event.target.value })}
             name="comment"
             label="Comentário do Professor:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="complementaryMaterial"
@@ -211,7 +208,7 @@ class EditQuestion extends React.Component {
             className="space-stack-l"
             label="Alternativa correta:"
             as={RadioGroup}
-            name="radio"
+            radioName="radio"
             options={options}
           />
           <footer className="flex justify-between">
@@ -222,35 +219,6 @@ class EditQuestion extends React.Component {
         </Form>
       </div>
     )
-  }
-
-  onChangeAlternative(text, index) {
-    const alternatives = this.state.questionAlternatives
-    alternatives[index].description = text
-    this.setState({
-      questionAlternatives: alternatives,
-    })
-  }
-
-  setOption(label) {
-    let options = this.state.options
-    let questionAlternatives = this.state.questionAlternatives
-    for (let index = 0; index < options.length; index++) {
-      if (options[index].label === label) {
-        questionAlternatives[index].correct = true
-        options[index].checked = true
-        this.setState({
-          correctRadioIndex: index,
-        })
-      } else {
-        questionAlternatives[index].correct = false
-        options[index].checked = false
-      }
-    }
-    this.setState({
-      options,
-      questionAlternatives,
-    })
   }
 
   onPressEditQuestion = () => {

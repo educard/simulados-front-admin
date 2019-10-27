@@ -25,7 +25,7 @@ class Login extends Component {
   render() {
     return (
       <div className="flex flex-column justify-center items-center login__maincontainer">
-        <img className="login__logoimage" src={logo} />
+        <img className="login__logoimage" alt="" src={logo} />
         <h1 className="h1 text-center">Entrar na sua conta</h1>
         <div className="flex flex-column login__inputcontainer">
           <Form

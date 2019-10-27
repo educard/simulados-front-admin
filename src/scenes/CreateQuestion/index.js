@@ -1,8 +1,5 @@
 import React from 'react'
-import Container from 'components/Container'
-import Card from 'components/Card'
 import Field from 'components/Field'
-import Input, { TextArea } from 'components/Input'
 import Button from 'components/Button'
 import RadioGroup from 'components/RadioGroup'
 
@@ -40,7 +37,7 @@ class CreateQuestion extends React.Component {
           onChange={this.handleFormChange}
           name="statement"
           label="Insira o enunciado da questão"
-          as={TextArea}
+          as={String}
         />
         <Field
           id="alternativeA"
@@ -48,7 +45,7 @@ class CreateQuestion extends React.Component {
           onChange={this.handleFormChange}
           name="alternativeA"
           label="Alternativa A:"
-          as={TextArea}
+          as={String}
         />
         <Field
           id="alternativeB"
@@ -56,7 +53,7 @@ class CreateQuestion extends React.Component {
           onChange={this.handleFormChange}
           name="alternativeB"
           label="Alternativa B:"
-          as={TextArea}
+          as={String}
         />
         <Field
           id="alternativeC"
@@ -64,7 +61,7 @@ class CreateQuestion extends React.Component {
           onChange={this.handleFormChange}
           name="alternativeC"
           label="Alternativa C:"
-          as={TextArea}
+          as={String}
         />
         <Field
           id="alternativeD"
@@ -72,7 +69,7 @@ class CreateQuestion extends React.Component {
           onChange={this.handleFormChange}
           name="alternativeD"
           label="Alternativa D:"
-          as={TextArea}
+          as={String}
         />
         <Field
           id="comment"
@@ -80,7 +77,7 @@ class CreateQuestion extends React.Component {
           onChange={this.handleFormChange}
           name="comment"
           label="Comentário do Professor:"
-          as={TextArea}
+          as={String}
         />
         <Field
           id="complementaryMaterial"
@@ -97,7 +94,7 @@ class CreateQuestion extends React.Component {
           className="space-stack-l"
           label="Informar qual é a alternativa correta"
           as={RadioGroup}
-          name="radio"
+          radioName="radio"
           options={[
             { value: 'alternativaA', label: 'A' },
             { value: 'alternativaB', label: 'B' },

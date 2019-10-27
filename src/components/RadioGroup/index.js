@@ -25,7 +25,7 @@ const RadioGroup = ({ options, name, onChange }) => (
         key={option.value}
         value={option.value}
         label={option.label}
-        name={name}
+        radioName={name}
         onChange={onChange}
         checked={option.checked}
       />

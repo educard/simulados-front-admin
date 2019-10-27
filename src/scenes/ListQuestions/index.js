@@ -3,22 +3,14 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
-import Card from 'components/Card'
-
-import { growl } from 'store/ui/actions'
 
 import { fetchQuestions } from 'store/question/actions'
 import { getQuestions } from 'store/question'
 import { getData } from 'store/user'
-import Button from 'components/Button'
 import AvailableQuestions from 'components/AvailableQuestions'
 import './listQuestions.scss'
 
 class ListQuestions extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   async componentDidMount() {
     const { profile } = this.props
     await this.props.fetchQuestions(profile.data.professor.id)
@@ -39,7 +31,7 @@ class ListQuestions extends Component {
           <h6 className="listQuestions__h6">Data de criação</h6>
         </div>
         <div className="flex flex-column">
-          {!!questions && !questions.length == 0 ? (
+          {!!questions && !questions.length === 0 ? (
             <AvailableQuestions data={approvedQuestions} className="flex" />
           ) : (
             <h5 className="text-center listQuestions__h5">

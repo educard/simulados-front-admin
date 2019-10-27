@@ -1,8 +1,5 @@
 import React from 'react'
-import Container from 'components/Container'
-import Card from 'components/Card'
 import Field from 'components/Field'
-import Input, { TextArea } from 'components/Input'
 import Button from 'components/Button'
 import RadioGroup from 'components/RadioGroup'
 import Form from 'components/Form'
@@ -43,7 +40,7 @@ class ApproveQuestion extends React.Component {
   filterQuestionsAlternatives() {
     const { alternatives } = this.props
     const questionAlternatives = alternatives.filter(
-      alternative => alternative.question_id == this.state.question.id,
+      alternative => alternative.question_id === this.state.question.id,
     )
     this.setState({ questionAlternatives })
     this.setCorrectQuestionRadio(questionAlternatives)
@@ -92,7 +89,7 @@ class ApproveQuestion extends React.Component {
             value={statement}
             name="statement"
             label="Enunciado da questão"
-            as={TextArea}
+            as={String}
             type="text"
           />
           <Field
@@ -100,35 +97,35 @@ class ApproveQuestion extends React.Component {
             value={questionAlternatives[0].description}
             name="alternativeA"
             label="Alternativa A:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="alternativeB"
             value={questionAlternatives[1].description}
             name="alternativeB"
             label="Alternativa B:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="alternativeC"
             value={questionAlternatives[2].description}
             name="alternativeC"
             label="Alternativa C:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="alternativeD"
             value={questionAlternatives[3].description}
             name="alternativeD"
             label="Alternativa D:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="comment"
             value={comment}
             name="comment"
             label="Comentário do Professor:"
-            as={TextArea}
+            as={String}
           />
           <Field
             id="complementaryMaterial"
@@ -142,7 +139,7 @@ class ApproveQuestion extends React.Component {
             className="space-stack-l"
             label="Alternativa correta:"
             as={RadioGroup}
-            name="radio"
+            radioName="radio"
             options={options}
           />
           <footer className="flex justify-between">

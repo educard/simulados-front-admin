@@ -3,7 +3,7 @@ const throttle = (threshold = 250, fn) => {
   let deferTimer
 
   return (...args) => {
-    const now = +new Date
+    const now = +new Date()
 
     if (last && now < last + threshold) {
       clearTimeout(deferTimer)
